@@ -2,22 +2,22 @@
 
 ## Phase 1: Project Setup
 
-- [ ] 1.1 Initialize npm project with `package.json`
-- [ ] 1.2 Install Vite + React dependencies
-- [ ] 1.3 Install Vercel CLI for local development
-- [ ] 1.4 Initialize Supabase CLI and link to project
-- [ ] 1.5 Create base directory structure (`/api`, `/src`, `/supabase/functions`, `/supabase/sql`)
-- [ ] 1.6 Configure `vercel.json` for API routes and build settings
-- [ ] 1.7 Create `.gitignore` for node_modules, .env, .vercel, etc.
+- [x] 1.1 Initialize npm project with `package.json`
+- [x] 1.2 Install Vite + React dependencies
+- [x] 1.3 Install Vercel CLI for local development
+- [x] 1.4 Initialize Supabase CLI and link to project
+- [x] 1.5 Create base directory structure (`/api`, `/src`, `/supabase/functions`, `/supabase/sql`)
+- [x] 1.6 Configure `vercel.json` for API routes and build settings
+- [x] 1.7 Create `.gitignore` for node_modules, .env, .vercel, etc.
 
 ## Phase 2: Supabase Configuration
 
-- [ ] 2.1 Enable pgmq extension in Supabase Dashboard
-- [ ] 2.2 Create `text_jobs` queue in Supabase Dashboard
-- [ ] 2.3 Enable "Expose Queues via PostgREST" to create `pgmq_public` schema
-- [ ] 2.4 Verify queue is accessible via PostgREST API
-- [ ] 2.5 Set up local Supabase environment with `supabase start`
-- [ ] 2.6 Configure local queue for development testing
+- [x] 2.1 Enable pgmq extension in Supabase Dashboard
+- [x] 2.2 Create `text_jobs` queue in Supabase Dashboard
+- [x] 2.3 Enable "Expose Queues via PostgREST" to create `pgmq_public` schema
+- [x] 2.4 Verify queue is accessible via PostgREST API
+- [x] 2.5 Set up local Supabase environment with `supabase start`
+- [x] 2.6 Configure local queue for development testing
 
 ## Phase 3: Database Schema
 
