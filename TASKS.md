@@ -30,10 +30,10 @@
 
 ## Phase 4: Shared Backend Infrastructure
 
-- [ ] 4.1 Create `api/_supabaseClient.ts` with server-side Supabase client
-- [ ] 4.2 Configure client to use service role key from environment
-- [ ] 4.3 Add helper functions for database operations if needed
-- [ ] 4.4 Add TypeScript types for Job model
+- [x] 4.1 Create `api/_supabaseClient.ts` with server-side Supabase client
+- [x] 4.2 Configure client to use service role key from environment
+- [x] 4.3 Add helper functions for database operations if needed
+- [x] 4.4 Add TypeScript types for Job model
 
 ## Phase 5: Vercel API Routes
 
