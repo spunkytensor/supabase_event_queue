@@ -21,12 +21,12 @@
 
 ## Phase 3: Database Schema
 
-- [ ] 3.1 Create `supabase/sql/create_jobs.sql` with jobs table schema
-- [ ] 3.2 Add status check constraint: `('queued','processing','completed','error')`
-- [ ] 3.3 Apply schema to local Supabase instance
-- [ ] 3.4 Create optional `webhook_events` table for debugging
-- [ ] 3.5 Apply schema to production Supabase instance
-- [ ] 3.6 Verify tables created with proper indexes and constraints
+- [x] 3.1 Create a migration file for supabase to create jobd table schema
+- [x] 3.2 Add status check constraint: `('queued','processing','completed','error')`
+- [x] 3.3 Verify schema with local Supabase instance
+- [x] 3.4 Create optional `webhook_events` table for debugging
+- [x] 3.5 Verify schema with local Supabase instance
+- [x] 3.6 Verify tables created with proper indexes and constraints
 
 ## Phase 4: Shared Backend Infrastructure
 

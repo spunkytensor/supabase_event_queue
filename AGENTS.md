@@ -9,6 +9,10 @@
 - **Deploy Edge Function**: `supabase functions deploy text_jobs_worker --project-ref <project-ref>`
 - **Test Edge Function**: `supabase functions invoke text_jobs_worker`
 
+## Important Rules
+- **Local Development Only**: Always use local Supabase instance (`supabase start`). Never link to or connect to any remote Supabase project unless explicitly instructed.
+- If a remote project link exists, remove it with `supabase unlink` before working locally.
+
 ## Architecture
 - **Frontend**: Vite + React (deployed to Vercel)
 - **Backend**: Vercel API routes in `/api` directory
