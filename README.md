@@ -58,29 +58,26 @@ Enable **Expose Queues via PostgREST** (creates `pgmq_public`).
 
 ### 2. Create `jobs` Table
 
-Run:
+The `jobs` table is automatically created by migrations when you run `supabase start` or deploy. See `supabase/migrations/20251112210000_create_jobs_schema.sql` for the schema.
 
-``` sql
-create table if not exists public.jobs (
-  id uuid primary key default gen_random_uuid(),
-  input_text text not null,
-  status text not null check (status in ('queued','processing','completed','error')),
-  result text,
-  error_message text,
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
-);
-```
+The schema includes:
+- `id` (UUID primary key)
+- `text_input` (text, not null)
+- `status` (enum: queued, processing, completed, error)
+- `result` (text, nullable)
+- `error_message` (text, nullable)
+- `created_at`, `updated_at`, `processed_at` (timestamps)
+- Indexes on `status`, `created_at`, `updated_at`
 
 ### 3. Optional: Create Webhook Events Table
 
-``` sql
-create table if not exists public.webhook_events (
-  id bigserial primary key,
-  payload jsonb not null,
-  created_at timestamptz not null default now()
-);
-```
+The `webhook_events` table is also created by the same migration. It includes:
+- `id` (UUID primary key)
+- `job_id` (UUID foreign key to jobs, with CASCADE delete)
+- `event_type` (text)
+- `payload` (JSONB)
+- `received_at` (timestamp)
+- Indexes on `job_id`, `event_type`, `received_at`
 
 ### 4. Create Database Webhook
 

@@ -4,10 +4,18 @@
   "installCommand": "npm install",
   "outputDirectory": "dist",
   "framework": "vite",
-  "env": [
-    "SUPABASE_URL",
-    "SUPABASE_SERVICE_ROLE_KEY",
-    "SUPABASE_WEBHOOK_SECRET",
-    "SAVE_WEBHOOK_EVENTS"
-  ]
+  "env": {
+    "SUPABASE_URL": {
+      "description": "Supabase project URL"
+    },
+    "SUPABASE_SERVICE_ROLE_KEY": {
+      "description": "Supabase service role key"
+    },
+    "SUPABASE_WEBHOOK_SECRET": {
+      "description": "Webhook secret for job status updates"
+    },
+    "SAVE_WEBHOOK_EVENTS": {
+      "description": "Whether to save webhook events to database"
+    }
+  }
 }
