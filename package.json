@@ -1,0 +1,30 @@
+{
+  "name": "supabase_event_queue",
+  "version": "1.0.0",
+  "description": "This is a demonstration project showing how to integrate **Supabase Queues**, **Supabase Edge Functions**, and **Supabase Database Webhooks** with a **Vercel-hosted Vite (React) frontend**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spunkytensor/supabase_event_queue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/spunkytensor/supabase_event_queue/issues"
+  },
+  "homepage": "https://github.com/spunkytensor/supabase_event_queue#readme",
+  "devDependencies": {
+    "@types/react": "^19.2.4",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2"
+  }
+}

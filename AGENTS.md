@@ -1,5 +1,9 @@
 # Supabase Event Queue Demo - Agent Guide
 
+## Documentation
+- **PRD.md** - Product requirements and system architecture details
+- **TASKS.md** - Comprehensive task breakdown by phase for implementation
+
 ## Commands
 - **Dev**: `npm install && vercel dev` (requires Supabase running: `supabase start`)
 - **Deploy Edge Function**: `supabase functions deploy text_jobs_worker --project-ref <project-ref>`
@@ -26,3 +30,8 @@
 - Use TypeScript for all API routes and Edge Functions
 - Job statuses: `'queued' | 'processing' | 'completed' | 'error'`
 - Environment variables: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_WEBHOOK_SECRET`, `SAVE_WEBHOOK_EVENTS`
+
+## Task Management
+- Mark tasks as completed in any referenced task list (TASKS.md, todo list, etc.) after finishing the work
+- Update task status immediately to maintain an accurate project state
+- Document which tasks are blocked, in-progress, or completed
