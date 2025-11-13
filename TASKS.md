@@ -38,30 +38,30 @@
 ## Phase 5: Vercel API Routes
 
 ### Submit Job Endpoint
-- [ ] 5.1 Create `api/jobs/submit.ts` file
-- [ ] 5.2 Implement POST handler for job submission
-- [ ] 5.3 Validate input text (non-empty, length limits)
-- [ ] 5.4 Insert new job record with status='queued'
-- [ ] 5.5 Enqueue message to `text_jobs` queue with `{ jobId }`
-- [ ] 5.6 Return response with `{ jobId, status: 'queued' }`
-- [ ] 5.7 Add error handling and proper HTTP status codes
+- [x] 5.1 Create `api/jobs/submit.ts` file
+- [x] 5.2 Implement POST handler for job submission
+- [x] 5.3 Validate input text (non-empty, length limits)
+- [x] 5.4 Insert new job record with status='queued'
+- [x] 5.5 Enqueue message to `text_jobs` queue with `{ jobId }`
+- [x] 5.6 Return response with `{ jobId, status: 'queued' }`
+- [x] 5.7 Add error handling and proper HTTP status codes
 
 ### Get Job Endpoint
-- [ ] 5.8 Create `api/jobs/[id].ts` file
-- [ ] 5.9 Implement GET handler to retrieve job by ID
-- [ ] 5.10 Query jobs table for job details
-- [ ] 5.11 Return job status, result, and metadata
-- [ ] 5.12 Handle 404 for non-existent jobs
-- [ ] 5.13 Add error handling
+- [x] 5.8 Create `api/jobs/[id].ts` file
+- [x] 5.9 Implement GET handler to retrieve job by ID
+- [x] 5.10 Query jobs table for job details
+- [x] 5.11 Return job status, result, and metadata
+- [x] 5.12 Handle 404 for non-existent jobs
+- [x] 5.13 Add error handling
 
 ### Webhook Receiver Endpoint
-- [ ] 5.14 Create `api/hooks/job-status.ts` file
-- [ ] 5.15 Implement POST handler for webhook payload
-- [ ] 5.16 Validate webhook secret if configured
-- [ ] 5.17 Parse incoming webhook payload
-- [ ] 5.18 Optionally store payload in `webhook_events` table
-- [ ] 5.19 Return 200 OK response
-- [ ] 5.20 Add logging for debugging
+- [x] 5.14 Create `api/hooks/job-status.ts` file
+- [x] 5.15 Implement POST handler for webhook payload
+- [x] 5.16 Validate webhook secret if configured
+- [x] 5.17 Parse incoming webhook payload
+- [x] 5.18 Optionally store payload in `webhook_events` table
+- [x] 5.19 Return 200 OK response
+- [x] 5.20 Add logging for debugging
 
 ## Phase 6: Supabase Edge Function
 

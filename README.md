@@ -138,6 +138,126 @@ If frontend directly uses Supabase: - `VITE_SUPABASE_URL` -
 
 ------------------------------------------------------------------------
 
+## Testing Backend Endpoints with curl
+
+### Start local development server
+
+```bash
+supabase start
+npm install
+vercel dev
+```
+
+The Vercel dev server runs on `http://localhost:3000` by default.
+
+### 1. Submit a Job
+
+```bash
+curl -X POST http://localhost:3000/api/jobs/submit \
+  -H "Content-Type: application/json" \
+  -d '{"text": "hello world"}'
+```
+
+Response (201):
+```json
+{
+  "jobId": "550e8400-e29b-41d4-a716-446655440000",
+  "status": "queued"
+}
+```
+
+Save the `jobId` for the next commands.
+
+### 2. Check Job Status
+
+```bash
+curl http://localhost:3000/api/jobs/550e8400-e29b-41d4-a716-446655440000
+```
+
+Response (200):
+```json
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "text_input": "hello world",
+  "status": "queued",
+  "result": null,
+  "error_message": null,
+  "created_at": "2025-01-01T12:00:00Z",
+  "updated_at": "2025-01-01T12:00:00Z",
+  "processed_at": null
+}
+```
+
+### 3. Process the Job
+
+Manually invoke the Edge Function to process queued messages:
+
+```bash
+supabase functions invoke text_jobs_worker
+```
+
+Then check job status again:
+
+```bash
+curl http://localhost:3000/api/jobs/550e8400-e29b-41d4-a716-446655440000
+```
+
+After processing, status should be `completed` with a result.
+
+### 4. Test Error Handling
+
+Submit invalid text (empty):
+```bash
+curl -X POST http://localhost:3000/api/jobs/submit \
+  -H "Content-Type: application/json" \
+  -d '{"text": ""}'
+```
+
+Response (400):
+```json
+{
+  "error": "Text cannot be empty"
+}
+```
+
+Submit text exceeding limit (>10000 chars):
+```bash
+curl -X POST http://localhost:3000/api/jobs/submit \
+  -H "Content-Type: application/json" \
+  -d "{\"text\": \"$(python3 -c 'print("x" * 10001)')\"}"
+```
+
+Response (400):
+```json
+{
+  "error": "Text exceeds maximum length of 10000 characters"
+}
+```
+
+### 5. Test Webhook Receiver (Manual)
+
+```bash
+curl -X POST http://localhost:3000/api/hooks/job-status \
+  -H "Content-Type: application/json" \
+  -d '{
+    "type": "UPDATE",
+    "record": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "status": "completed",
+      "result": "HELLO WORLD"
+    }
+  }'
+```
+
+Response (200):
+```json
+{
+  "success": true
+}
+```
+
+------------------------------------------------------------------------
+
 ## Acceptance Criteria
 
 -   Jobs transition through states: `queued → processing → completed`.
