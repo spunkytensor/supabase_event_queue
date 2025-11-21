@@ -1,5 +1,7 @@
 # production_queue Demo
 
+(See https://ampcode.com/threads/T-846db935-874b-47e8-bfee-f9c3a6752fd0)
+
 This is a demonstration project showing how to integrate **Supabase
 Queues**, **Supabase Edge Functions**, and **Supabase Database
 Webhooks** with a **Vercel-hosted Vite (React) frontend**.
@@ -255,6 +257,17 @@ Response (200):
 
 ------------------------------------------------------------------------
 
+## Local Webhook Configuration
+
+When using `supabase start` (Docker) alongside `vercel dev`, the webhook URL must be reachable from inside the Supabase container.
+
+- **macOS / Windows:** Use `http://host.docker.internal:3000/api/hooks/job-status`
+- **Linux:** Use `http://172.17.0.1:3000/api/hooks/job-status` (or your Docker bridge IP)
+
+This ensures the database running in Docker can send the POST request to your host machine's Vercel server.
+
+------------------------------------------------------------------------
+
 ## Acceptance Criteria
 
 -   Jobs transition through states: `queued → processing → completed`.
@@ -268,6 +281,27 @@ Response (200):
 ## Additional Documentation
 
 See `PRD.md` for the full product requirements document.
+
+------------------------------------------------------------------------
+
+
+## Where does the webhook execute?
+
+The webhook executes as an HTTP POST request **originating from Supabase** and **targeting your Vercel backend**.
+
+**Flow:**
+
+1.  **Trigger (Supabase Database)**:
+    When a record in the `jobs` table is updated (e.g., when the Edge Function updates a job status to `completed`), the database fires an `UPDATE` event.
+
+2.  **Execution (Supabase Webhook System)**:
+    Supabase catches this event and executes an HTTP POST request containing the record data.
+
+3.  **Destination (Vercel API)**:
+    The request is sent to your Vercel API route: `https://<your-vercel-domain>/api/hooks/job-status`.
+
+4.  **Processing (Vercel Serverless Function)**:
+    Your code in `api/hooks/job-status.ts` receives the request, validates the signature (if configured), and processes the event (logging it or storing it in `webhook_events`).
 
 ------------------------------------------------------------------------
 

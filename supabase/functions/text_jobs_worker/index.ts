@@ -74,11 +74,11 @@ Deno.serve(async (req: Request) => {
 
     // Read one message from the text_jobs queue
     const { data: messages, error: readError } = await supabase.rpc(
-      'pgmq_public.read',
+      'read_queue_messages',
       {
         queue_name: 'text_jobs',
         vt: 300, // Visibility timeout: 5 minutes
-        limit: 1,
+        limit_n: 1,
       },
     );
 
@@ -249,7 +249,7 @@ Deno.serve(async (req: Request) => {
  */
 async function deleteQueueMessage(supabase: any, msgId: number): Promise<void> {
   try {
-    const { error } = await supabase.rpc('pgmq_public.delete', {
+    const { error } = await supabase.rpc('delete_queue_message', {
       queue_name: 'text_jobs',
       msg_id: msgId,
     });

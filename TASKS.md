@@ -114,25 +114,25 @@
 
 ## Phase 9: Database Webhook Configuration
 
-- [ ] 9.1 Navigate to Supabase Dashboard → Database → Webhooks
-- [ ] 9.2 Create new webhook
-- [ ] 9.3 Set table to `jobs`
-- [ ] 9.4 Set event to `UPDATE`
-- [ ] 9.5 Set URL to `https://<vercel-domain>/api/hooks/job-status`
-- [ ] 9.6 Add secret header (optional, matches `SUPABASE_WEBHOOK_SECRET`)
-- [ ] 9.7 Test webhook delivery
-- [ ] 9.8 Verify webhook fires on job completion
+- [x] 9.1 Navigate to Supabase Dashboard → Database → Webhooks (Implemented via SQL Migration)
+- [x] 9.2 Create new webhook (Implemented via SQL Migration)
+- [x] 9.3 Set table to `jobs` (Implemented via SQL Migration)
+- [x] 9.4 Set event to `UPDATE` (Implemented via SQL Migration)
+- [x] 9.5 Set URL to `https://<vercel-domain>/api/hooks/job-status` (Local: host.docker.internal)
+- [x] 9.6 Add secret header (optional, matches `SUPABASE_WEBHOOK_SECRET`)
+- [x] 9.7 Test webhook delivery
+- [x] 9.8 Verify webhook fires on job completion
 
 ## Phase 10: Testing & Validation
 
 ### Local Testing
-- [ ] 10.1 Start local Supabase: `supabase start`
-- [ ] 10.2 Start Vercel dev server: `vercel dev`
-- [ ] 10.3 Submit test job via UI
-- [ ] 10.4 Manually invoke edge function: `supabase functions invoke text_jobs_worker`
-- [ ] 10.5 Verify job status transitions: queued → processing → completed
-- [ ] 10.6 Verify queue message is consumed and deleted
-- [ ] 10.7 Verify UI updates correctly with polling
+- [x] 10.1 Start local Supabase: `supabase start`
+- [x] 10.2 Start Vercel dev server: `vercel dev`
+- [x] 10.3 Submit test job via UI
+- [x] 10.4 Manually invoke edge function: `supabase functions invoke text_jobs_worker` (Automated via Trigger)
+- [x] 10.5 Verify job status transitions: queued → processing → completed
+- [x] 10.6 Verify queue message is consumed and deleted
+- [x] 10.7 Verify UI updates correctly with polling
 
 ### Integration Testing
 - [ ] 10.8 Test with multiple concurrent jobs
