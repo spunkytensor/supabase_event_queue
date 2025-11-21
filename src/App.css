@@ -1,0 +1,278 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.form-group textarea {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1em;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.submit-btn,
+.new-job-btn {
+  padding: 12px 30px;
+  font-size: 1.1em;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn:hover:not(:disabled),
+.new-job-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.6);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.error-message {
+  padding: 12px 16px;
+  background-color: #fee;
+  border-left: 4px solid #f44;
+  color: #c33;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.error-box {
+  padding: 20px;
+  background-color: #fee;
+  border-left: 4px solid #f44;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+
+.error-box h3 {
+  color: #c33;
+  margin-bottom: 10px;
+}
+
+.error-content {
+  color: #c33;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.status-display {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.job-info {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  border-left: 4px solid #667eea;
+  margin-bottom: 20px;
+}
+
+.job-info p {
+  margin: 10px 0;
+  font-size: 1.05em;
+}
+
+.job-info strong {
+  color: #333;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.status-queued {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-processing {
+  background-color: #cfe2ff;
+  color: #084298;
+}
+
+.status-completed {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.status-error {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.loading-spinner {
+  margin-top: 15px;
+  padding: 10px;
+  color: #084298;
+  font-weight: 500;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.results-box {
+  padding: 20px;
+  background-color: #f0f8ff;
+  border: 2px solid #667eea;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+
+.results-box h3 {
+  color: #667eea;
+  margin-bottom: 15px;
+}
+
+.result-content {
+  background-color: white;
+  padding: 15px;
+  border-radius: 4px;
+  border-left: 4px solid #667eea;
+  line-height: 1.8;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.timestamps {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.new-job-btn {
+  margin-top: 20px;
+  align-self: flex-start;
+}
+
+.footer {
+  background-color: #f9f9f9;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.8em;
+  }
+
+  .header p {
+    font-size: 1em;
+  }
+
+  .main-content {
+    padding: 20px 15px;
+  }
+
+  .form-group textarea {
+    font-size: 16px; /* Prevents zoom on mobile */
+  }
+
+  .submit-btn,
+  .new-job-btn {
+    width: 100%;
+  }
+
+  .timestamps {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

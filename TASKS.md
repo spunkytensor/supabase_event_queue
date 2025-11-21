@@ -65,35 +65,35 @@
 
 ## Phase 6: Supabase Edge Function
 
-- [ ] 6.1 Create `supabase/functions/text_jobs_worker/index.ts`
-- [ ] 6.2 Set up Deno imports for Supabase client
-- [ ] 6.3 Implement queue message reading from `pgmq_public.read`
-- [ ] 6.4 Parse message payload to extract `jobId`
-- [ ] 6.5 Load job from database by ID
-- [ ] 6.6 Update job status to 'processing'
-- [ ] 6.7 Implement text processing logic (e.g., uppercase transformation)
-- [ ] 6.8 Update job with result and status='completed'
-- [ ] 6.9 Handle errors and set status='error' with error_message
-- [ ] 6.10 Delete processed message from queue
-- [ ] 6.11 Add logging and error handling
+- [x] 6.1 Create `supabase/functions/text_jobs_worker/index.ts`
+- [x] 6.2 Set up Deno imports for Supabase client
+- [x] 6.3 Implement queue message reading from `pgmq_public.read`
+- [x] 6.4 Parse message payload to extract `jobId`
+- [x] 6.5 Load job from database by ID
+- [x] 6.6 Update job status to 'processing'
+- [x] 6.7 Implement text processing logic (e.g., uppercase transformation)
+- [x] 6.8 Update job with result and status='completed'
+- [x] 6.9 Handle errors and set status='error' with error_message
+- [x] 6.10 Delete processed message from queue
+- [x] 6.11 Add logging and error handling
 - [ ] 6.12 Deploy edge function to Supabase: `supabase functions deploy text_jobs_worker`
 - [ ] 6.13 Set up cron trigger or manual invocation schedule
 
 ## Phase 7: Frontend Implementation
 
-- [ ] 7.1 Create `src/App.tsx` with main UI component
-- [ ] 7.2 Create `src/main.tsx` React bootstrap
-- [ ] 7.3 Add text input field for user text submission
-- [ ] 7.4 Add submit button with click handler
-- [ ] 7.5 Implement job submission to `/api/jobs/submit`
-- [ ] 7.6 Add status display box showing current job state
-- [ ] 7.7 Add results display box for processed output
-- [ ] 7.8 Implement polling mechanism (every 2 seconds) to `/api/jobs/:id`
-- [ ] 7.9 Update UI based on job status transitions
-- [ ] 7.10 Stop polling when status is 'completed' or 'error'
-- [ ] 7.11 Add loading states and error handling
-- [ ] 7.12 Style UI for clean, simple appearance
-- [ ] 7.13 Add TypeScript types for API responses
+- [x] 7.1 Create `src/App.tsx` with main UI component
+- [x] 7.2 Create `src/main.tsx` React bootstrap
+- [x] 7.3 Add text input field for user text submission
+- [x] 7.4 Add submit button with click handler
+- [x] 7.5 Implement job submission to `/api/jobs/submit`
+- [x] 7.6 Add status display box showing current job state
+- [x] 7.7 Add results display box for processed output
+- [x] 7.8 Implement polling mechanism (every 2 seconds) to `/api/jobs/:id`
+- [x] 7.9 Update UI based on job status transitions
+- [x] 7.10 Stop polling when status is 'completed' or 'error'
+- [x] 7.11 Add loading states and error handling
+- [x] 7.12 Style UI for clean, simple appearance
+- [x] 7.13 Add TypeScript types for API responses
 
 ## Phase 8: Environment Configuration
 
