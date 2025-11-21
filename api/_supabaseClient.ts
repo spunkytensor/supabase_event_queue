@@ -74,9 +74,10 @@ export async function createJob(textInput: string): Promise<Job> {
   }
 
   // Enqueue message to text_jobs queue with jobId
-  const { error: queueError } = await supabase.rpc('pgmq_public.send', {
+  // Uses public.send_message wrapper function
+  const { error: queueError } = await supabase.rpc('send_message', {
     queue_name: 'text_jobs',
-    msg: JSON.stringify({ jobId: job.id }),
+    msg: { jobId: job.id }, // Pass object directly for jsonb argument
   });
 
   if (queueError) {

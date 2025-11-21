@@ -24,6 +24,8 @@ export default function App() {
   const [error, setError] = useState<string | null>(null)
   const [polling, setPolling] = useState(false)
 
+  const API_BASE = import.meta.env.DEV ? 'http://localhost:3000' : ''
+
   // Submit job
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -37,7 +39,7 @@ export default function App() {
     setError(null)
     
     try {
-      const response = await fetch('/api/jobs/submit', {
+      const response = await fetch(`${API_BASE}/api/jobs/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +75,7 @@ export default function App() {
 
     const interval = setInterval(async () => {
       try {
-        const response = await fetch(`/api/jobs/${jobId}`)
+        const response = await fetch(`${API_BASE}/api/jobs/${jobId}`)
         if (!response.ok) {
           throw new Error('Failed to fetch job status')
         }

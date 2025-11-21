@@ -6,9 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "app": "vite",
-    "backend": "vercel dev",
+    "dev": "vite",
+    "backend": "vercel dev --listen 3000",
     "app-all": "npm run app & npm run backend",
-    "build": "vite build"
+    "build": "vite build",
+    "setup:env": "node setup_envs.cjs"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,7 @@
   "devDependencies": {
     "@types/react": "^19.2.4",
     "@types/react-dom": "^19.2.3",
+    "@vercel/node": "^5.5.8",
     "@vitejs/plugin-react": "^5.1.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

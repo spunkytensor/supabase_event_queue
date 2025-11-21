@@ -1,5 +1,6 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { getJob } from '../_supabaseClient';
+import { handleCORS } from '../_cors';
 
 /**
  * GET /api/jobs/[id]
@@ -25,6 +26,10 @@ import { getJob } from '../_supabaseClient';
  * - 500: Server error
  */
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (handleCORS(req, res)) {
+    return;
+  }
+
   // Only allow GET requests
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });

@@ -1,5 +1,6 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { saveWebhookEvent } from '../_supabaseClient';
+import { handleCORS } from '../_cors';
 
 /**
  * POST /api/hooks/job-status
@@ -30,6 +31,10 @@ import { saveWebhookEvent } from '../_supabaseClient';
  * - 500: Server error
  */
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (handleCORS(req, res)) {
+    return;
+  }
+
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });

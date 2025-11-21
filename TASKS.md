@@ -98,12 +98,12 @@
 ## Phase 8: Environment Configuration
 
 ### Local Development
-- [ ] 8.1 Create `.env.local` file with Supabase credentials
-- [ ] 8.2 Add `SUPABASE_URL` for local/remote Supabase
-- [ ] 8.3 Add `SUPABASE_SERVICE_ROLE_KEY`
-- [ ] 8.4 Add `SUPABASE_WEBHOOK_SECRET` (optional)
-- [ ] 8.5 Add `SAVE_WEBHOOK_EVENTS` flag (optional)
-- [ ] 8.6 Add frontend env vars: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` if needed
+- [x] 8.1 Create script `setup_envs.cjs` to auto-extract credentials
+- [x] 8.2 Add `SUPABASE_URL` for local/remote Supabase (auto-extracted)
+- [x] 8.3 Add `SUPABASE_SERVICE_ROLE_KEY` (auto-extracted)
+- [x] 8.4 Add `SUPABASE_WEBHOOK_SECRET` (optional, needs manual setup)
+- [x] 8.5 Add `SAVE_WEBHOOK_EVENTS` flag (optional, pre-configured)
+- [x] 8.6 Add frontend env vars: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` (auto-extracted)
 
 ### Production Deployment
 - [ ] 8.7 Configure Vercel environment variables in dashboard
